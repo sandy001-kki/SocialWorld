@@ -5,6 +5,7 @@ import authRouter from './routes/auth.js'
 import buildingsRouter from './routes/buildings.js'
 import userRouter from './routes/user.js'
 import adsRouter from './routes/ads.js'
+import deletionRouter from './routes/deletion.js'
 
 const app = express()
 
@@ -33,6 +34,7 @@ app.use('/api/auth', authRouter)
 app.use('/api/buildings', buildingsRouter)
 app.use('/api/user', userRouter)
 app.use('/api/ads', adsRouter)
+app.use('/api/deletion', deletionRouter)
 
 // Global error handler
 app.use((err, _req, res, _next) => {
