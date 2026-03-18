@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
   plugins: [react()],
-  base: '/SocialWorld/',   // must match your GitHub repo name exactly
+  base: command === 'build' ? '/SocialWorld/' : '/',
   server: {
     port: 5173,
     proxy: {
@@ -17,7 +17,6 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: false,
-    // Three.js is large — allow bigger chunks
     chunkSizeWarningLimit: 2000,
   },
-})
+}))
